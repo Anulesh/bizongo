@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
             this.prodList.imageUrl = ele.galleryURL;
             this.prodList.name = ele.title[0];
             this.prodList.itemUrl = ele.viewItemURL;
-            this.prodList.price = +ele.sellingStatus[0].currentPrice[0].__value__ * 100;
+            this.prodList.price = Math.round(+ele.sellingStatus[0].currentPrice[0].__value__ * 100);
             this.productListArr.push(this.prodList);
           });
            // console.log(this.productListArr);
