@@ -12,18 +12,12 @@ export class ProductFilterPipe implements PipeTransform {
     // filter items array, items which match and return true will be kept, false will be filtered out
     return items.filter((item: ProductListModel) => this.applyFilter(item, filter));
   }
-  /**
-   * Perform the filtering.
-   *
-   * @param {Product} prod
-   * @param {Product} filter
-   * @return {boolean}
-   */
+  
   applyFilter(item: ProductListModel, filter: ProductListModel): boolean {
     for (let field in filter) {
       if (filter[field]) {
         if (typeof filter[field] === 'string') {
-            console.log(item[field]);
+            // console.log(item[field]);
           if (item[field].toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
             return false;
           }

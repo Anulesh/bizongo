@@ -19,9 +19,9 @@ export class ProductListComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.filter);
     this.service.finalDO.subscribe(
       data => {
-        console.log('hi');
         this.productListArr.length = 0;
         if (data.hasOwnProperty('findItemsByKeywordsResponse')) {
           this.sampleL = data.findItemsByKeywordsResponse[0].searchResult[0].item;
@@ -36,7 +36,7 @@ export class ProductListComponent implements OnInit {
             this.prodList.price = +ele.sellingStatus[0].currentPrice[0].__value__ * 100;
             this.productListArr.push(this.prodList);
           });
-           console.log(this.productListArr);
+           // console.log(this.productListArr);
         }
       }
     );
