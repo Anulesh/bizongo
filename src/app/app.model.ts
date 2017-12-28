@@ -4,4 +4,6 @@ export class ProductListModel {
     productId: Number;
     categoryId: Number;
     CategoryName: String;
+    itemUrl: String;
+    price: Number;
 }

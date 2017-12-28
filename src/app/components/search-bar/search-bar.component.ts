@@ -14,26 +14,20 @@ export class SearchBarComponent implements OnInit {
     private router: Router, private service: ProductServiceService) {
     this.createForm();
     this.logNameChange();
-    //this.getDataSer();
-    this.router.routeReuseStrategy.shouldReuseRoute = function() {
-      return false;
-  };
-    route.params.subscribe((params: Params) => {
-      let query = params['q'];
-      console.log("in d");
-
-      if (query !== '') {
-        this.service.getData(query);
-      }
-    });
+    this.getDataSer();
   }
 
   ngOnInit() {
-    
   }
 
   getDataSer() {
-    
+    this.route.queryParams.subscribe(params => {
+      const query = params['q'];
+      console.log(query);
+      if (query !== undefined) {
+        this.service.getData(query);
+      }
+    });
   }
   createForm() {
     this.searchForm = this.fb.group({

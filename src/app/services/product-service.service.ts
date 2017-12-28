@@ -8,15 +8,20 @@ export class ProductServiceService {
   opName = 'findItemsByKeywords';
   serVer = '1.0.0';
   secKey = environment.appKey;
-  respFor =  'JSON';
+  respFor = 'JSON';
   entCount = 40;
 
-  private finalData = new BehaviorSubject<any>('');
+  private finalData = new BehaviorSubject<any>([]);
   finalDO = this.finalData.asObservable();
 
   constructor(private http: HttpClient) { }
 
   getData(query: String) {
-    this.finalData.next(this.http.get(this.ebayUrl + 'OPERATION-NAME=' + this.opName + '&SERVICE-VERSION=' + this.serVer + '&SECURITY-APPNAME=' + this.secKey + '&RESPONSE-DATA-FORMAT=' + this.respFor + '&keywords=' + query + '&paginationInput.entriesPerPage=' + this.entCount));
+    this.http.get(this.ebayUrl + 'OPERATION-NAME=' + this.opName + '&SERVICE-VERSION=' + this.serVer + '&SECURITY-APPNAME=' + this.secKey + '&RESPONSE-DATA-FORMAT=' + this.respFor + '&keywords=' + query + '&paginationInput.entriesPerPage=' + this.entCount).subscribe(
+      data => {
+        //console.log(data);
+        this.finalData.next(data);
+      }
+    );
   }
 }
