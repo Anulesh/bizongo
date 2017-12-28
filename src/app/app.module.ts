@@ -10,8 +10,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { AppRoutingModule } from './app.route';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductServiceService } from './services/product-service.service';
-
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,8 @@ import { ProductServiceService } from './services/product-service.service';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ],
   providers: [ProductServiceService],
   bootstrap: [AppComponent]

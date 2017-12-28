@@ -1,3 +1,6 @@
+<div class="loader" *ngIf="isLoading$ | async">
+        <mat-progress-bar mode="indeterminate" color = "accent" style="position: absolute;top: 55px;"></mat-progress-bar>
+    </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4 col-xs-12 offset-sm-2">
@@ -21,11 +24,11 @@
         <div class="card card-outline-success" style="height:400px">
           <img class="card-img-top" src="{{product.imageUrl}}" alt="{{product.name}}">
           <div class="card-block">
-            <h4 class="card-title">{{product.categoryName}}</h4>
-            <p class="card-text">{{product.name}}</p>
+            <p class="card-text"><b>Category</b> : {{product.categoryName}}</p>
+            <p class="card-text"><b>Name</b> : {{product.name}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>Price</b> : {{product.price}}</li>
+            <li class="list-group-item"><b>Price</b> : {{product.price}} INR</li>
           </ul>
           <div class="card-block">
             <a href="{{product.itemUrl}}" class="card-link">Actual Link</a>

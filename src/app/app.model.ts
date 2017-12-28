@@ -3,7 +3,7 @@ export class ProductListModel {
     imageUrl: String;
     productId: Number;
     categoryId: Number;
-    CategoryName: String;
+    categoryName: String;
     itemUrl: String;
     price: Number;
 }
